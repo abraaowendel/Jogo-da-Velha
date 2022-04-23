@@ -1,12 +1,13 @@
 let atual = 0;
 let cpu = 0;
 let you = 0;
+let checarEmpate = 1;
 let jogador = document.querySelector('.box__top .player__actual')
 let vencedor = null;
 let check = false;
 
-const btns = document.querySelectorAll('.box__line-item')
-.forEach((btn) => btn.addEventListener('click', function(b){
+const items = document.querySelectorAll('.box__line-item')
+.forEach((item) => item.addEventListener('click', function(b){
 
     const jogadorAtual = (play) => {
         jogador.innerHTML = `${play}`
@@ -15,7 +16,7 @@ const btns = document.querySelectorAll('.box__line-item')
         b.currentTarget.setAttribute('busy', 'yes');
     }
 
-    if(b.currentTarget.getAttribute('busy') === null){
+    if(b.currentTarget.getAttribute('busy') === null && check != true){
         const adicionar = (a, b) =>  {
             switch(a){
                 case 0:
@@ -40,6 +41,7 @@ const btns = document.querySelectorAll('.box__line-item')
             t.style.background = '#19615D';
         }
         const mudarVencedor = (quadrado) =>{
+            check = true;
             vencedor = quadrado.innerHTML;
             switch(vencedor){
                 case 'X':
@@ -52,7 +54,10 @@ const btns = document.querySelectorAll('.box__line-item')
                     cpu++;
                     document.querySelector('.players__cpu-quantWins').innerHTML = cpu;
                     break
+                default:
+                    vencedor = "EMPATE";
             }
+            jogador.innerHTML = vencedor;
             document.querySelector('.players__wins-name').innerHTML = vencedor;  
         }
 
@@ -86,7 +91,6 @@ const btns = document.querySelectorAll('.box__line-item')
             if(checarJogada(quadrado[0], quadrado[4], quadrado[8])){
                 mudarCor(quadrado[0],quadrado[4],quadrado[8]);
                 mudarVencedor(quadrado[0]);
-                
             }
             if(checarJogada(quadrado[2], quadrado[4], quadrado[6])){
                 mudarCor(quadrado[2],quadrado[4],quadrado[6]);
@@ -95,17 +99,20 @@ const btns = document.querySelectorAll('.box__line-item')
         }
         const checarJogada = (quadrado1,quadrado2,quadrado3) =>{ 
             let check = false;
-
             if(quadrado1.innerHTML !== '' && quadrado1.innerHTML === quadrado2.innerHTML  && quadrado2.innerHTML === quadrado3.innerHTML){
                 check = true;
+            }
+            else{
+                checarEmpate++
+                if(checarEmpate === 73){
+                    document.querySelector('.players__wins-name').innerHTML = "EMPATE";  
+                }
             }
             return check;
         }
 
         adicionar(atual,b.currentTarget)
         checarVencedor();
-
-
     }
     setarAtributo();
 }))
@@ -115,10 +122,15 @@ const btns = document.querySelectorAll('.box__line-item')
 document.querySelector('.box__top .restart')
 .addEventListener('click', () => {
     document.querySelectorAll('.box__line-item').forEach((i) => {
+        check = false;
         i.innerHTML = '';
         i.removeAttribute('busy');
         i.style.background = '';
         document.querySelector('.players__wins-name').innerHTML = null;
+        jogador.innerHTML = 'VOCÊ';
+        atual = 0;
+        checarEmpate = 1;
+
     })
 })
 

@@ -82,10 +82,11 @@ body{
 }
 .players__cpu-quantWins,
 .players__player-quantWins{
-    font-size: 30px;
+    font-size: 35px;
 }
 .players__wins-name{
-    padding: 5px 0;
+    font-size: 20px;
+    padding-top: 9px;
 }
 .box__top{
     align-items: center;
