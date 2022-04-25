@@ -33,7 +33,6 @@ const items = document.querySelectorAll('.box__line-item')
                     break
             } 
         }
-
         // MUDAR COR DO VENCEDOR
         const mudarCor = (p,s,t) =>{
             p.style.background = '#19615D';
@@ -110,7 +109,6 @@ const items = document.querySelectorAll('.box__line-item')
             }
             return check;
         }
-
         adicionar(atual,b.currentTarget)
         checarVencedor();
     }
@@ -132,6 +130,3 @@ document.querySelector('.box__top .restart')
 
     })
 })
-
-
-
