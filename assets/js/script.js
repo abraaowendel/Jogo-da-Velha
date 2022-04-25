@@ -8,14 +8,12 @@ let check = false;
 
 const items = document.querySelectorAll('.box__line-item')
 .forEach((item) => item.addEventListener('click', function(b){
-
     const jogadorAtual = (play) => {
         jogador.innerHTML = `${play}`
     };
     const setarAtributo = () => {
         b.currentTarget.setAttribute('busy', 'yes');
     }
-
     if(b.currentTarget.getAttribute('busy') === null && check != true){
         const adicionar = (a, b) =>  {
             switch(a){
@@ -59,7 +57,6 @@ const items = document.querySelectorAll('.box__line-item')
             jogador.innerHTML = vencedor;
             document.querySelector('.players__wins-name').innerHTML = vencedor;  
         }
-
         const checarVencedor = () => {
             let quadrado = document.querySelectorAll('.box__line-item')
 
@@ -127,6 +124,5 @@ document.querySelector('.box__top .restart')
         jogador.innerHTML = 'VOCÊ';
         atual = 0;
         checarEmpate = 1;
-
     })
 })
