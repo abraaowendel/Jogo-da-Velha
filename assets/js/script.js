@@ -8,12 +8,20 @@ let check = false;
 
 const items = document.querySelectorAll('.box__line-item')
 .forEach((item) => item.addEventListener('click', function(b){
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
     const jogadorAtual = (play) => {
         jogador.innerHTML = `${play}`
     };
     const setarAtributo = () => {
         b.currentTarget.setAttribute('busy', 'yes');
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
     if(b.currentTarget.getAttribute('busy') === null && check != true){
         const adicionar = (a, b) =>  {
             switch(a){
@@ -31,6 +39,10 @@ const items = document.querySelectorAll('.box__line-item')
                     break
             } 
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
         // MUDAR COR DO VENCEDOR
         const mudarCor = (p,s,t) =>{
             p.style.background = '#19615D';
@@ -57,6 +69,10 @@ const items = document.querySelectorAll('.box__line-item')
             jogador.innerHTML = vencedor;
             document.querySelector('.players__wins-name').innerHTML = vencedor;  
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
         const checarVencedor = () => {
             let quadrado = document.querySelectorAll('.box__line-item')
 
@@ -106,6 +122,10 @@ const items = document.querySelectorAll('.box__line-item')
             }
             return check;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
         adicionar(atual,b.currentTarget)
         checarVencedor();
     }
@@ -124,5 +144,14 @@ document.querySelector('.box__top .restart')
         jogador.innerHTML = 'VOCÊ';
         atual = 0;
         checarEmpate = 1;
+<<<<<<< HEAD
     })
 })
+=======
+
+    })
+})
+
+
+
+>>>>>>> 93d667f43d0b4403b240ec67c13f309eba00ff10
